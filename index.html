@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nu Colour 奇蹟氣墊粉餅</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+TC:wght@300;400;500&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --cream: #FAF6F1;
+  --blush: #E8C9B8;
+  --rose: #C9897A;
+  --nude: #D4A898;
+  --warm: #8B6355;
+  --deep: #3D2B25;
+  --gold: #C4A882;
+  --soft-gold: #E8D5B7;
+  --peach: #F5EDE4;
+}
+html { scroll-behavior: smooth; }
+body { background: var(--cream); color: var(--deep); font-family: 'Noto Serif TC', serif; overflow-x: hidden; }
+
+/* HERO */
+.hero {
+  background: linear-gradient(150deg, #F5EDE4 0%, #EDD9CA 50%, #DEC3AE 100%);
+  padding: 90px 80px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  min-height: 90vh;
+}
+.badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--deep); color: var(--soft-gold);
+  font-size: 11px; letter-spacing: 3px; padding: 8px 18px;
+  width: fit-content; margin-bottom: 32px; font-family: 'Cinzel', serif;
+}
+.badge::before { content: '✦'; font-size: 9px; }
+.hero-brand { font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 6px; color: var(--rose); margin-bottom: 14px; }
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: 64px; font-weight: 300; font-style: italic; line-height: 1.05; color: var(--deep); margin-bottom: 8px; }
+.hero-title-zh { font-size: 26px; font-weight: 300; color: var(--warm); letter-spacing: 6px; margin-bottom: 36px; }
+.hero-tagline { font-size: 14px; line-height: 2; color: var(--warm); font-weight: 300; border-left: 2px solid var(--nude); padding-left: 20px; margin-bottom: 44px; }
+.hero-features { display: flex; flex-direction: column; gap: 12px; }
+.hero-feat { display: flex; align-items: center; gap: 12px; font-size: 13px; letter-spacing: 1.5px; color: var(--deep); }
+.feat-dot { width: 6px; height: 6px; background: var(--rose); border-radius: 50%; flex-shrink: 0; }
+
+/* hero right: product illustration (CSS only) */
+.hero-visual {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px;
+}
+.product-circle {
+  width: 280px; height: 280px; border-radius: 50%;
+  background: linear-gradient(145deg, #F0E0D4 0%, #DFC4B0 60%, #CEAA96 100%);
+  box-shadow: 0 24px 60px rgba(139,99,85,0.25), inset 0 -8px 20px rgba(0,0,0,0.08);
+  display: flex; align-items: center; justify-content: center; position: relative;
+}
+.product-circle-inner {
+  width: 200px; height: 200px; border-radius: 50%;
+  background: linear-gradient(145deg, #E8CFC0, #D4B09C);
+  box-shadow: inset 0 4px 12px rgba(0,0,0,0.1);
+  display: flex; align-items: center; justify-content: center;
+}
+.product-circle-label {
+  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px; color: rgba(61,43,37,0.5); text-align: center;
+}
+.product-specs {
+  display: flex; gap: 20px;
+}
+.spec-pill {
+  background: white; border: 1px solid var(--blush); padding: 10px 20px; text-align: center;
+}
+.spec-pill-label { font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 2px; color: var(--rose); }
+.spec-pill-val { font-size: 13px; font-weight: 500; color: var(--deep); margin-top: 3px; letter-spacing: 1px; }
+
+/* SECTION DIVIDER */
+.section-divider { text-align: center; padding: 60px 20px 20px; }
+.divider-label {
+  font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 5px; color: var(--rose);
+  display: flex; align-items: center; justify-content: center; gap: 20px;
+}
+.divider-label::before, .divider-label::after {
+  content: ''; flex: 1; max-width: 120px; height: 1px;
+}
+.divider-label::before { background: linear-gradient(to right, transparent, var(--nude)); }
+.divider-label::after { background: linear-gradient(to left, transparent, var(--nude)); }
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 300; font-style: italic; color: var(--deep); margin: 12px 0 6px; }
+.section-title-zh { font-size: 15px; letter-spacing: 4px; color: var(--warm); font-weight: 300; }
+
+/* ANATOMY */
+.anatomy { padding: 50px 80px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; background: var(--blush); }
+.anatomy-card { background: var(--cream); padding: 44px 36px; position: relative; overflow: hidden; transition: transform 0.3s; }
+.anatomy-card:hover { transform: translateY(-4px); }
+.anatomy-num { font-family: 'Cormorant Garamond', serif; font-size: 72px; font-weight: 300; color: var(--blush); line-height: 1; position: absolute; top: 16px; right: 24px; }
+.anatomy-title { font-size: 16px; font-weight: 500; letter-spacing: 2px; color: var(--deep); margin-bottom: 4px; margin-top: 8px; }
+.anatomy-subtitle { font-size: 10px; color: var(--rose); letter-spacing: 2px; margin-bottom: 14px; font-family: 'Cinzel', serif; }
+.anatomy-desc { font-size: 13px; line-height: 2; color: var(--warm); font-weight: 300; }
+
+/* WHY */
+.why { padding: 60px 80px; }
+.why-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; background: var(--blush); margin-top: 40px; }
+.why-card { background: var(--cream); padding: 40px 32px; }
+.why-num-wrap { width: 44px; height: 44px; border: 1px solid var(--nude); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+.why-num { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; color: var(--rose); }
+.why-title { font-size: 15px; font-weight: 500; letter-spacing: 2px; color: var(--deep); margin-bottom: 10px; }
+.why-desc { font-size: 13px; line-height: 1.9; color: var(--warm); font-weight: 300; }
+
+/* INGREDIENTS */
+.ingredients { background: var(--cream); padding: 20px 80px 80px; }
+.ing-rows { display: flex; flex-direction: column; border: 1px solid var(--blush); margin-top: 50px; }
+.ing-row { display: grid; grid-template-columns: 180px 1fr; border-bottom: 1px solid var(--blush); }
+.ing-row:last-child { border-bottom: none; }
+.ing-row-label {
+  background: linear-gradient(135deg, #F5EDE4, #EDD9CA);
+  padding: 36px 28px; display: flex; flex-direction: column; justify-content: center;
+  border-right: 1px solid var(--blush);
+}
+.ing-row-label-tag { font-family: 'Cinzel', serif; font-size: 8px; letter-spacing: 3px; color: var(--rose); margin-bottom: 8px; }
+.ing-row-label-title { font-size: 15px; font-weight: 500; letter-spacing: 2px; color: var(--deep); line-height: 1.6; }
+.ing-cell { padding: 36px 36px; display: flex; flex-direction: column; justify-content: center; }
+.ing-cell-en { font-family: 'Cinzel', serif; font-size: 8.5px; letter-spacing: 1.5px; color: var(--rose); margin-bottom: 10px; line-height: 1.6; }
+.ing-cell-zh { font-size: 17px; font-weight: 500; color: var(--deep); letter-spacing: 2px; margin-bottom: 14px; }
+.ing-cell-divider {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+}
+.ing-cell-divider::before { content: ''; width: 32px; height: 1px; background: var(--rose); }
+.ing-cell-divider::after { content: '◆'; font-size: 6px; color: var(--nude); }
+.ing-cell-effect { font-size: 13px; color: var(--warm); font-weight: 300; letter-spacing: 0.5px; line-height: 1.9; }
+
+/* HOW TO USE */
+.howto { padding: 60px 80px 80px; background: linear-gradient(135deg, #F8F2EB 0%, #F0E4D8 100%); }
+.howto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 40px; }
+.howto-col-title { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 3px; color: var(--rose); margin-bottom: 28px; padding-bottom: 14px; border-bottom: 1px solid var(--nude); }
+.howto-steps { display: flex; flex-direction: column; gap: 22px; }
+.howto-step { display: flex; gap: 18px; }
+.step-num { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: var(--blush); line-height: 1; flex-shrink: 0; width: 28px; }
+.step-text { font-size: 13px; line-height: 2; color: var(--warm); font-weight: 300; padding-top: 4px; }
+
+/* COLORS */
+.colors-section { padding: 20px 80px 80px; }
+.colors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--blush); margin-top: 40px; }
+.color-card { background: var(--cream); padding: 50px 50px; position: relative; overflow: hidden; }
+.color-swatch { width: 72px; height: 72px; border-radius: 50%; margin-bottom: 24px; box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+.color-num { font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 4px; color: var(--rose); margin-bottom: 6px; }
+.color-name { font-size: 20px; font-weight: 400; letter-spacing: 4px; color: var(--deep); margin-bottom: 10px; }
+.color-desc { font-size: 13px; color: var(--warm); font-weight: 300; line-height: 1.9; }
+.color-bg { position: absolute; right: -30px; bottom: -30px; width: 160px; height: 160px; border-radius: 50%; opacity: 0.15; }
+
+/* CTA BANNER */
+.cta-banner {
+  background: var(--deep); padding: 80px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+}
+.cta-left {}
+.cta-eyebrow { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 5px; color: var(--nude); margin-bottom: 20px; display: flex; align-items: center; gap: 14px; }
+.cta-eyebrow::before, .cta-eyebrow::after { content: ''; width: 30px; height: 1px; background: var(--warm); }
+.cta-title { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; font-style: italic; color: var(--soft-gold); line-height: 1.1; margin-bottom: 14px; }
+.cta-subtitle { font-size: 14px; letter-spacing: 5px; color: var(--nude); font-weight: 300; }
+.cta-right {}
+.cta-body { font-size: 14px; line-height: 2.3; color: rgba(250,246,241,0.7); font-weight: 300; margin-bottom: 40px; }
+.cta-pills { display: flex; flex-wrap: wrap; gap: 10px; }
+.cta-pill {
+  border: 1px solid rgba(196,168,130,0.4); padding: 10px 20px;
+  font-size: 11px; letter-spacing: 2px; color: var(--soft-gold); font-family: 'Cinzel', serif;
+}
+
+/* FOOTER */
+.footer-bar { background: #2A1E1A; padding: 22px 80px; display: flex; align-items: center; justify-content: space-between; }
+.footer-brand { font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 4px; color: var(--gold); }
+.footer-info { font-size: 11px; color: var(--warm); letter-spacing: 2px; }
+.footer-origin { font-size: 11px; color: var(--nude); letter-spacing: 2px; }
+
+/* ANIMATIONS */
+@keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+.hero-left > * { animation: fadeUp 0.7s ease forwards; opacity: 0; }
+.hero-left > *:nth-child(1){animation-delay:.1s}
+.hero-left > *:nth-child(2){animation-delay:.2s}
+.hero-left > *:nth-child(3){animation-delay:.3s}
+.hero-left > *:nth-child(4){animation-delay:.4s}
+.hero-left > *:nth-child(5){animation-delay:.5s}
+.hero-left > *:nth-child(6){animation-delay:.6s}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:60px 32px;min-height:auto;}
+  .hero-title{font-size:48px;}
+  .anatomy{grid-template-columns:1fr;padding:32px;}
+  .why{padding:40px 32px;}
+  .why-grid{grid-template-columns:1fr;}
+  .ingredients{padding:20px 32px 60px;}
+  .ing-row{grid-template-columns:1fr;}
+  .ing-row-label{border-right:none;border-bottom:1px solid var(--blush);}
+  .ing-cell-img{border-right:none;}
+  .howto{padding:40px 32px;}
+  .howto-grid{grid-template-columns:1fr;}
+  .colors-section{padding:20px 32px 60px;}
+  .colors-grid{grid-template-columns:1fr;}
+  .cta-banner{grid-template-columns:1fr;padding:60px 32px;}
+  .footer-bar{flex-direction:column;gap:10px;padding:20px 32px;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="badge">韓國直送 · DIRECT FROM KOREA</div>
+    <div class="hero-brand">NU COLOUR</div>
+    <h1 class="hero-title">Miracle<br>Cushion</h1>
+    <div class="hero-title-zh">奇蹟氣墊粉餅</div>
+    <p class="hero-tagline">
+      零粉感・高保濕・水潤光澤感<br>
+      輕盈不黏膩・無懈可擊的遮瑕力<br>
+      打造偽素顏的裸妝美肌
+    </p>
+    <div class="hero-features">
+      <div class="hero-feat"><div class="feat-dot"></div>神級遮瑕膏 + 氣墊粉餅 雙層設計</div>
+      <div class="hero-feat"><div class="feat-dot"></div>SPF50+ PA+++ 高效防曬</div>
+      <div class="hero-feat"><div class="feat-dot"></div>超持久・不浮粉・不脫妝</div>
+      <div class="hero-feat"><div class="feat-dot"></div>含積雪草・玻尿酸・生育酚</div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="product-circle">
+      <div class="product-circle-inner">
+        <div class="product-circle-label">NU COLOUR<br>MIRACLE CUSHION</div>
+      </div>
+    </div>
+    <div class="product-specs">
+      <div class="spec-pill">
+        <div class="spec-pill-label">CONCEALER</div>
+        <div class="spec-pill-val">遮瑕膏 6g</div>
+      </div>
+      <div class="spec-pill">
+        <div class="spec-pill-label">CUSHION</div>
+        <div class="spec-pill-val">氣墊粉餅 10g</div>
+      </div>
+      <div class="spec-pill">
+        <div class="spec-pill-label">REFILL</div>
+        <div class="spec-pill-val">補充芯 ×1</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANATOMY -->
+<div class="section-divider">
+  <div class="divider-label">PRODUCT ANATOMY</div>
+  <div class="section-title">Inside the Magic</div>
+  <div class="section-title-zh">產品解構</div>
+</div>
+<section class="anatomy">
+  <div class="anatomy-card">
+    <div class="anatomy-num">01</div>
+    <div class="anatomy-title">神級遮瑕膏</div>
+    <div class="anatomy-subtitle">CONCEALER · 6g</div>
+    <p class="anatomy-desc">質地水潤、滑順輕盈，高延展力<br>薄薄一層，即可打造光滑無瑕陶瓷肌<br>輕拍於皺紋、斑點、痘疤等瑕疵處<br>均勻修飾，彷彿素顏般自然</p>
+  </div>
+  <div class="anatomy-card">
+    <div class="anatomy-num">02</div>
+    <div class="anatomy-title">氣墊粉餅</div>
+    <div class="anatomy-subtitle">CUSHION FOUNDATION · 10g</div>
+    <p class="anatomy-desc">SPF50+ PA+++ 複合防曬因子<br>全面提升肌膚防禦力<br>添加多種保濕成分，遮瑕同時補水<br>撫平紋路，讓肌膚水潤閃耀光采</p>
+  </div>
+  <div class="anatomy-card">
+    <div class="anatomy-num">03</div>
+    <div class="anatomy-title">水滴氣墊粉撲</div>
+    <div class="anatomy-subtitle">MIRACLE PUFF</div>
+    <p class="anatomy-desc">水滴狀設計，細小彎角處<br>完美修飾難以觸及的部位<br>緻密氣孔構造，均勻服貼上妝<br>有效補水，讓肌膚吸收有效成分</p>
+  </div>
+</section>
+
+<!-- WHY BUY -->
+<div class="section-divider">
+  <div class="divider-label">WHY YOU'LL LOVE IT</div>
+  <div class="section-title">Three Reasons to Choose</div>
+  <div class="section-title-zh">必買三大理由</div>
+</div>
+<section class="why">
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-num-wrap"><div class="why-num">1</div></div>
+      <div class="why-title">雙層奇蹟底妝</div>
+      <div class="why-desc">上層神級遮瑕膏精準修瑕，下層氣墊粉餅全臉均勻上色，一盒搞定完美底妝，省時又省力。</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num-wrap"><div class="why-num">2</div></div>
+      <div class="why-title">持久不脫妝整日</div>
+      <div class="why-desc">持久緊密貼合配方，不浮粉、不脫妝，從早到晚維持水潤光澤感，忘記補妝的煩惱。</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num-wrap"><div class="why-num">3</div></div>
+      <div class="why-title">養膚邊妝邊護</div>
+      <div class="why-desc">積雪草、玻尿酸、生育酚等珍貴成分，讓你每次上妝都是一次護膚，越妝越美麗。</div>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<div class="section-divider">
+  <div class="divider-label">KEY INGREDIENTS</div>
+  <div class="section-title">養膚關鍵成分</div>
+  <div class="section-title-zh">SKINCARE WHILE YOU WEAR</div>
+</div>
+<section class="ingredients" style="padding-top:0">
+  <div class="ing-rows">
+    <div class="ing-row">
+      <div class="ing-row-label">
+        <div class="ing-row-label-tag">SOOTHING</div>
+        <div class="ing-row-label-title">舒緩<br>修護</div>
+      </div>
+      <div class="ing-cell">
+        <div class="ing-cell-en">Centella Asiatica & Chamomile Extract</div>
+        <div class="ing-cell-zh">積雪草與洋甘菊萃取</div>
+        <div class="ing-cell-divider"></div>
+        <div class="ing-cell-effect">舒緩修護肌膚，增強肌膚天然修復力，安撫泛紅敏感不適</div>
+      </div>
+    </div>
+    <div class="ing-row">
+      <div class="ing-row-label">
+        <div class="ing-row-label-tag">BARRIER</div>
+        <div class="ing-row-label-title">強健<br>屏障</div>
+      </div>
+      <div class="ing-cell">
+        <div class="ing-cell-en">Ceramide NP</div>
+        <div class="ing-cell-zh">神經醯胺</div>
+        <div class="ing-cell-divider"></div>
+        <div class="ing-cell-effect">強健肌膚屏障，鎖住水分不流失，提升肌膚防禦力與自我修護力</div>
+      </div>
+    </div>
+    <div class="ing-row">
+      <div class="ing-row-label">
+        <div class="ing-row-label-tag">BRIGHTENING</div>
+        <div class="ing-row-label-title">亮白<br>抗老</div>
+      </div>
+      <div class="ing-cell">
+        <div class="ing-cell-en">Niacinamide & Adenosine</div>
+        <div class="ing-cell-zh">菸鹼醯胺與腺苷</div>
+        <div class="ing-cell-divider"></div>
+        <div class="ing-cell-effect">均勻膚色、淡化暗沉，撫平細紋，亮白提亮 × 抗老雙效合一</div>
+      </div>
+    </div>
+    <div class="ing-row">
+      <div class="ing-row-label">
+        <div class="ing-row-label-tag">HYDRATION</div>
+        <div class="ing-row-label-title">深層<br>保濕</div>
+      </div>
+      <div class="ing-cell">
+        <div class="ing-cell-en">Sodium Hyaluronate & Hydrolyzed Hyaluronic Acid</div>
+        <div class="ing-cell-zh">玻尿酸與水解玻尿酸</div>
+        <div class="ing-cell-divider"></div>
+        <div class="ing-cell-effect">雙重玻尿酸複合配方深層滲透保濕，持續補水鎖水，讓肌膚水潤飽滿</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO USE -->
+<div class="section-divider">
+  <div class="divider-label">HOW TO USE</div>
+  <div class="section-title">Perfect Application</div>
+  <div class="section-title-zh">使用方式</div>
+</div>
+<section class="howto">
+  <div class="howto-grid">
+    <div>
+      <div class="howto-col-title">CONCEALER · 遮瑕膏使用步驟</div>
+      <div class="howto-steps">
+        <div class="howto-step"><div class="step-num">1</div><div class="step-text">以水滴粉撲的<strong>尖角部分</strong>取少量膏體</div></div>
+        <div class="howto-step"><div class="step-num">2</div><div class="step-text">輕輕拍點於需要遮瑕的部位（皺紋、斑點、痘疤）</div></div>
+        <div class="howto-step"><div class="step-num">3</div><div class="step-text">仔細拍勻至自然融合，打造光滑無瑕底妝</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="howto-col-title">CUSHION · 氣墊粉餅使用步驟</div>
+      <div class="howto-steps">
+        <div class="howto-step"><div class="step-num">1</div><div class="step-text">用粉撲<strong>寬面</strong>取適量粉底</div></div>
+        <div class="howto-step"><div class="step-num">2</div><div class="step-text">均勻上在全臉（兩頰、額頭、鼻樑等各部位）</div></div>
+        <div class="howto-step"><div class="step-num">3</div><div class="step-text">循肌膚紋理輕輕拍勻，呈現自然水潤光澤感</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SHADES -->
+<div class="section-divider">
+  <div class="divider-label">AVAILABLE SHADES</div>
+  <div class="section-title">Find Your Shade</div>
+  <div class="section-title-zh">選擇你的色號</div>
+</div>
+<section class="colors-section">
+  <div class="colors-grid">
+    <div class="color-card">
+      <div class="color-swatch" style="background:linear-gradient(135deg,#F5DFD0,#EDD0BC);"></div>
+      <div class="color-num">SHADE 01</div>
+      <div class="color-name">明 亮 色</div>
+      <p class="color-desc">妝效明亮且富有活力<br>適合偏白膚色，呈現透明感亮澤底妝</p>
+      <div class="color-bg" style="background:#F5DFD0;"></div>
+    </div>
+    <div class="color-card" style="background:#F5EDE3;">
+      <div class="color-swatch" style="background:linear-gradient(135deg,#DEB89A,#C89A7D);"></div>
+      <div class="color-num">SHADE 02</div>
+      <div class="color-name">自 然 色</div>
+      <p class="color-desc">妝效乾淨自然的自然膚色<br>適合自然至偏黃膚色，呈現裸妝無痕感</p>
+      <div class="color-bg" style="background:#DEB89A;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+  <div class="cta-left">
+    <div class="cta-eyebrow">NU COLOUR</div>
+    <div class="cta-title">Your Skin,<br>Perfected.</div>
+    <div class="cta-subtitle">一看就愛上的底妝奇蹟</div>
+  </div>
+  <div class="cta-right">
+    <p class="cta-body">
+      韓國直送品質保證<br>
+      雙層設計顛覆底妝體驗<br>
+      養膚成分邊妝邊護<br>
+      讓你越妝越美麗
+    </p>
+    <div class="cta-pills">
+      <div class="cta-pill">SPF50+ PA+++</div>
+      <div class="cta-pill">韓國直送</div>
+      <div class="cta-pill">超持久不脫妝</div>
+      <div class="cta-pill">養膚邊妝邊護</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer-bar">
+  <div class="footer-brand">NU COLOUR</div>
+  <div class="footer-info">MIRACLE CUSHION · 奇蹟氣墊粉餅</div>
+  <div class="footer-origin">🇰🇷 韓國直送 · MADE IN KOREA</div>
+</div>
+
+</body>
+</html>
